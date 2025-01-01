@@ -1,4 +1,4 @@
-# leetcode
+# Leetcode
 Leetcode solved questions.
 # Note:
 * Solutions may not beat 100% in runtime.
