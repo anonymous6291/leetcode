@@ -1,5 +1,5 @@
 /**
- * @param {number[][]} matrix
+ * @param {number[][]} mat
  * @return {number}
  */
 var minFallingPathSum = function (mat) {
