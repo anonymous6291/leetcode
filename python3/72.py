@@ -23,7 +23,5 @@ class Solution:
 
         n1 = len(w1)
         n2 = len(w2)
-        dp = [[]] * n1
-        for i in range(n1):
-            dp[i] = [-1] * n2
+        dp = [[-1] * n2 for _ in range(n1)]
         return find(w1, 0, w2, 0, dp)
