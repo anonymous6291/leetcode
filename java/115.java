@@ -6,20 +6,17 @@ class Solution {
         int dp[][] = new int[n1][n2];
         for (int i = 0; i < n1; i++)
             Arrays.fill(dp[i], -1);
-        return find(ss.toCharArray(), tt.toCharArray(), 0, 0, dp);
+        return find(ss.toCharArray(), tt.toCharArray(), 0, 0, n1, n2, dp);
     }
 
-    private int find(char c[], char s[], int i, int j, int dp[][]) {
-        //System.out.println(i+","+j);
-        if (j == s.length)
+    private int find(char c[], char s[], int i, int j, int n1, int n2, int dp[][]) {
+        if (j == n2)
             return 1;
-        if (i == c.length || c.length - i < s.length - j)
+        if (i == n1 || n1 - i < n2 - j)
             return 0;
         if (dp[i][j] != -1)
             return dp[i][j];
-        int res = find(c, s, i + 1, j, dp);
-        if (c[i] == s[j])
-            res += find(c, s, i + 1, j + 1, dp);
+        int res = find(c, s, i + 1, j, n1, n2, dp) + (c[i] == s[j] ? find(c, s, i + 1, j + 1, n1, n2, dp) : 0);
         dp[i][j] = res;
         return res;
     }
